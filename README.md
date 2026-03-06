@@ -1,4 +1,14 @@
-# DevOps Capstone Template
+# devops-capstone-project
+
+This repository contains my capstone project for the IBM DevOps & Software Engineering Professional Certificate.
+
+The project scenario is to complete a customer accounts CRUD microservice for an e-commerce application using Agile and DevOps practices. The service is containerized with Docker and deployed to Kubernetes within the IBM Skills Network lab environment.
+
+---
+
+## Original Template Documentation
+
+Below is the content of the original README provided with the IBM DevOps Capstone starter template.
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python 3.9](https://img.shields.io/badge/Python-3.9-green.svg)](https://shields.io/)
