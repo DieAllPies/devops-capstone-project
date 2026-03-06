@@ -137,7 +137,9 @@ class TestAccountService(TestCase):
     ######################################################################
     # READ AN ACCOUNT
     ######################################################################
+
     def test_get_account(self):
+
         """It should Read a single Account"""
         account = self._create_accounts(1)[0]
         resp = self.client.get(
@@ -146,15 +148,19 @@ class TestAccountService(TestCase):
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         data = resp.get_json()
         self.assertEqual(data["name"], account.name)
-        
+
     def test_get_account_not_found(self):
+
         """It should not Read an Account that is not found"""
         resp = self.client.get(f"{BASE_URL}/0")
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
+
     ######################################################################
     # UPDATE AN EXISTING ACCOUNT
     ######################################################################
+
     def test_update_account(self):
+
         """It should Update an existing Account"""
         # create an Account to update
         test_account = AccountFactory()
@@ -168,6 +174,7 @@ class TestAccountService(TestCase):
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         updated_account = resp.get_json()
         self.assertEqual(updated_account["name"], "Something Known")
+
     def test_update_method_not_allowed(self):
         """It should not allow POST on an existing account endpoint"""
         account = self._create_accounts(1)[0]
@@ -175,18 +182,23 @@ class TestAccountService(TestCase):
         resp = self.client.post(f"{BASE_URL}/{account.id}")
 
         self.assertEqual(resp.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+
     ######################################################################
     # DELETE AN EXISTING ACCOUNT
     ######################################################################
+
     def test_delete_account(self):
+
         """It should Delete an Account"""
         account = self._create_accounts(1)[0]
         resp = self.client.delete(f"{BASE_URL}/{account.id}")
         self.assertEqual(resp.status_code, status.HTTP_204_NO_CONTENT)
+
     ######################################################################
     # Method Not Allowed
     ######################################################################
     def test_method_not_allowed(self):
+
         """It should not allow an illegal method call"""
         account = self._create_accounts(1)[0]
 
